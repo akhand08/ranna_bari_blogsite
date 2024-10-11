@@ -50,7 +50,7 @@ def post_detail(request, year, month, day, post):
     
     comments =  post.comments.filter(active=True)
     form = CommentForm()
-    
+     
     post_tags_id = post.tags.values_list('id', flat=True)
     similar_posts = Post.published.filter(tags_in = post_tags_id) \
                     .exclude(id = post.id)
